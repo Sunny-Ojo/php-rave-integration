@@ -23,14 +23,14 @@ if (isset($_POST["checkout-btn"])) {
         //   please this redirect url should be replaced with the website address, then you specify the path to where the validation will take place
         // in my case,  i am using http://localhost, so replace it with the website url/ravevalidation.php bacause that is where the validation will take place
 
-        $redirect_url = "http://localhost/ravevalidation.php.";
+        $redirect_url = "http://rccgdtce.org/ravevalidation.php";
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => json_encode([
-                // 'amount' => $amount,
-                 'customer_email' => $customer_email,
+                'amount' => $amount,
+                'customer_email' => $customer_email,
                 'currency' => $currency,
                 'txref' => $txref,
                 'PBFPubKey' => $PBFPubKey,

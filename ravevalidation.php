@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if (isset($_GET['cancelled']) == 'true') {
-    header('Location: failed.php');
-
-}
 $amount_to_charge = $_SESSION["total_amount_payable"];
 $servername = "localhost";
 $username = "root";
@@ -15,6 +11,10 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if (isset($_GET['cancelled']) == 'true') {
+        header('Location: failed.php');
+
+    }
     if (isset($_GET['txref'])) {
         $ref = $_GET['txref'];
         $amount = $amount_to_charge; //Correct Amount from Server
@@ -78,7 +78,7 @@ try {
         }
     } else {
         $_SESSION["error"] = 'No reference supplied';
-        die(header('Location:index.php'));
+        header('Location:index.php');
     }
 
 } catch (PDOException $e) {

@@ -4,7 +4,7 @@
         <a href="https://rccgjuniorchurch.org" class="text-warning">Home</a> <br>
         <a href="/info@rccgjuniorchurch.org" class="text-warning">Contact Us</a>
         <p class="m-0 text-white">
-            Copyright &copy; DTCE Junior Church - <?php echo date('Y'); ?>
+            Copyright &copy; RCCG DTCE Junior church - <?php echo date('Y'); ?>
         </p>
     </div>
 </footer>
